@@ -1,0 +1,35 @@
+nav {
+  border: 1px solid rgba(230, 235, 240, 1);
+}
+
+nav span {
+  color: rgba(104, 113, 150, 1);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.btn-light {
+  border-radius: 5px;
+  background-color: rgba(241, 243, 248, 0.75);
+  margin-right: 10px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 4px 6px;
+}
+.nav-pills {
+  padding-left: 24px;
+}
+
+.nav .btn.active {
+  border-radius: 5px;
+  background-color: rgba(62, 64, 219, 0.1);
+  border: none;
+}
+
+.nav .btn.active span {
+  color: #3e40db;
+}

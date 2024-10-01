@@ -1,0 +1,42 @@
+<span [ngSwitch]="icon">
+  <ng-container *ngSwitchCase="'logicpilot'">
+    <img src="assets/icons/icon-logicpilot.svg" alt="LogicPilot Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'details'">
+    <img src="assets/icons/icon-details.svg" alt="Details Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'status'">
+    <img src="assets/icons/icon-status.svg" alt="Details Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'activity'">
+    <img src="assets/icons/icon-activity.svg" alt="Activity Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'addsubtask'">
+    <img src="assets/icons/icon-addsubtask.svg" alt="Add-subtask Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'comments'">
+    <img src="assets/icons/icon-comments.svg" alt="Comments Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'assignee'">
+    <img src="assets/icons/icon-assignee.svg" alt="Assignee Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'coowner'">
+    <img src="assets/icons/icon-coowner.svg" alt="Co-owner Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'attachments'">
+    <img src="assets/icons/icon-attachments.svg" alt="Attachments Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'importance'">
+    <img src="assets/icons/icon-importance.svg" alt="Importance Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'customername'">
+    <img src="assets/icons/icon-customername.svg" alt="Customer Name Icon" />
+  </ng-container>
+  <ng-container *ngSwitchCase="'invoiceid'">
+    <img src="assets/icons/icon-invoiceid.svg" alt="Invoice ID Icon" />
+  </ng-container>
+  <!-- Add more icons here -->
+  <ng-container *ngSwitchDefault>
+    <span>Icon not found</span>
+  </ng-container>
+</span>

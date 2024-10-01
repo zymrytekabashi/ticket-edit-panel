@@ -1,0 +1,15 @@
+.app-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.app-panel {
+  width: 45%;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
+}

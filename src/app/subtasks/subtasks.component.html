@@ -1,0 +1,57 @@
+<div class="subtasks-section">
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Subtask name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let subtask of subtasks"
+        [ngClass]="{ completed: subtask.completed }"
+      >
+        <td class="d-flex align-items-center">
+          <input
+            type="checkbox"
+            id="checkbox-{{ subtask.name }}"
+            [checked]="subtask.completed"
+            (change)="toggleCompletion(subtask)"
+          />
+          <label
+            for="checkbox-{{ subtask.name }}"
+            class="custom-checkbox me-1"
+          ></label>
+          <span class="subtask-name"> {{ subtask.name }} </span>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot class="table-light">
+      <tr>
+        <td>
+          <div *ngIf="isAddingSubtask">
+            <form
+              [formGroup]="subtaskForm"
+              (ngSubmit)="addSubtask()"
+              class="mb-3"
+            >
+              <input
+                formControlName="subtask"
+                placeholder="Add new subtask"
+                class="form-control mb-2"
+              />
+              <button type="submit" class="btn btn-success">Add Subtask</button>
+            </form>
+          </div>
+          <button (click)="toggleAddingSubtask()" class="btn">
+            <ng-container *ngIf="!isAddingSubtask">
+              <app-icon icon="addsubtask" />
+            </ng-container>
+            <span class="ms-2">{{
+              isAddingSubtask ? "Cancel" : "Add Subtask"
+            }}</span>
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

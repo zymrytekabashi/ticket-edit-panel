@@ -1,0 +1,162 @@
+<div class="container">
+  <div class="header d-flex align-items-center">
+    <app-icon icon="logicpilot" />
+    <span class="ai-text">
+      Ask Logic Pilot to generate subtasks or to summarize comments
+    </span>
+  </div>
+  <table class="table no-border custom-table">
+    <thead>
+      <tr>
+        <th class="icon-column"><app-icon icon="status" /></th>
+        <th class="fixed-column">Status</th>
+        <th class="fixed-column unpaid"><span>Unpaid</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="icon-column">
+          <app-icon icon="assignee"></app-icon>
+        </th>
+        <td class="fixed-column">Assignee</td>
+        <td
+          class="fixed-column"
+          (click)="enableEdit('assignee')"
+          [ngClass]="{ active: editingField === 'assignee' }"
+        >
+          <ng-container
+            *ngIf="editingField === 'assignee'; else displayAssignee"
+          >
+            <input
+              formControlName="assignee"
+              class="form-control"
+              (blur)="saveChanges()"
+              (focus)="enableEdit('assignee')"
+            />
+          </ng-container>
+          <ng-template #displayAssignee>
+            {{ detailsForm.get("assignee")?.value }}
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" class="icon-column">
+          <app-icon icon="coowner"></app-icon>
+        </th>
+        <td class="fixed-column">Co-owner</td>
+        <td
+          class="fixed-column"
+          (click)="enableEdit('coowner')"
+          [ngClass]="{ active: editingField === 'coowner' }"
+        >
+          <ng-container *ngIf="editingField === 'coowner'; else displayCoowner">
+            <input
+              formControlName="coowner"
+              class="form-control"
+              (blur)="saveChanges()"
+              (focus)="enableEdit('coowner')"
+            />
+          </ng-container>
+          <ng-template #displayCoowner>
+            {{ detailsForm.get("coowner")?.value }}
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" class="icon-column">
+          <app-icon icon="importance"></app-icon>
+        </th>
+        <td class="fixed-column">Importance</td>
+        <td
+          class="fixed-column"
+          (click)="enableEdit('importance')"
+          [ngClass]="{ active: editingField === 'importance' }"
+        >
+          <ng-container
+            *ngIf="editingField === 'importance'; else displayImportance"
+          >
+            <input
+              formControlName="importance"
+              class="form-control"
+              (blur)="saveChanges()"
+              (focus)="enableEdit('importance')"
+            />
+          </ng-container>
+          <ng-template #displayImportance>
+            {{ detailsForm.get("importance")?.value }}
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" class="icon-column">
+          <app-icon icon="customername"></app-icon>
+        </th>
+        <td class="fixed-column">Customer name</td>
+        <td
+          class="fixed-column"
+          (click)="enableEdit('customerName')"
+          [ngClass]="{ active: editingField === 'customerName' }"
+        >
+          <ng-container
+            *ngIf="editingField === 'customerName'; else displayCustomerName"
+          >
+            <input
+              formControlName="customerName"
+              class="form-control"
+              (blur)="saveChanges()"
+              (focus)="enableEdit('customerName')"
+            />
+          </ng-container>
+          <ng-template #displayCustomerName>
+            {{ detailsForm.get("customerName")?.value }}
+          </ng-template>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" class="icon-column">
+          <app-icon icon="invoiceid"></app-icon>
+        </th>
+        <td class="fixed-column">Invoice ID</td>
+        <td
+          class="fixed-column"
+          (click)="enableEdit('invoiceId')"
+          [ngClass]="{ active: editingField === 'invoiceId' }"
+        >
+          <ng-container
+            *ngIf="editingField === 'invoiceId'; else displayInvoiceId"
+          >
+            <input
+              formControlName="invoiceId"
+              class="form-control"
+              (blur)="saveChanges()"
+              (focus)="enableEdit('invoiceId')"
+            />
+          </ng-container>
+          <ng-template #displayInvoiceId>
+            {{ detailsForm.get("invoiceId")?.value }}
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="d-flex align-items-center"
+    style="width: 300px; margin-bottom: 37px"
+  >
+    <p class="subtasks-title mb-0 me-3">Subtasks</p>
+    <div class="progress flex-grow-1 me-3">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        [style.width]="progress + '%'"
+        [attr.aria-valuenow]="progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+    <span class="progress-bar-value"
+      >{{ completedCount }}/{{ totalSubtasks }}</span
+    >
+  </div>
+  <app-subtasks (subtasksUpdated)="updateCounts($event)"></app-subtasks>
+</div>

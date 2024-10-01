@@ -1,0 +1,79 @@
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.table-header {
+  background-color: red !important;
+}
+
+.table thead th {
+  color: rgba(104, 113, 150, 1);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 9px;
+  border: 1px solid rgba(233, 238, 249, 1);
+  background-color: rgba(104, 113, 150, 0.1);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  width: 4px;
+  top: 2px;
+  height: 12px;
+  border: solid #3e40db;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+// Show checkmark when checkbox is checked
+input[type="checkbox"]:checked + .custom-checkbox::after {
+  opacity: 1;
+}
+
+.table {
+  border: 1px solid rgba(233, 238, 249, 1);
+  th {
+    border: 1px solid rgba(233, 238, 249, 1);
+  }
+}
+
+.input-group {
+  margin-top: 10px;
+}
+
+.subtask-name {
+  color: rgba(104, 113, 150, 1);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.btn span {
+  color: rgba(104, 113, 150, 1);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
